@@ -1,6 +1,7 @@
 let gameInterval;
 let score = 0;
 let timeRemaining = 60;
+let timerInterval;
 let currentChallenge = { type: 'efficiency', fixedColdTemp: 0, fixedHotTemp: 1 };
 
 function setNewChallenge() {
@@ -10,10 +11,7 @@ function setNewChallenge() {
     const fixedHotTemp = Math.floor(Math.random() * 300) + 300;
     currentChallenge.fixedHotTemp = fixedHotTemp;
 
-    const challengeText = document.getElementById('challengeText');
-    
-    challengeText.innerText = `Com os dados fornecidos, faça os cálculos e descubra o trabalho que está sendo feito.`;
-
+    document.getElementById('challengeText').style.display = 'flex';
     document.getElementById('fixedTempColdDisplay').innerText = `Calor Frio: ${fixedColdTemp} J`;
     document.getElementById('fixedTempHotDisplay').innerText = `Calor Quente: ${fixedHotTemp} J`;
 
@@ -21,6 +19,12 @@ function setNewChallenge() {
     document.getElementById('wInput').style.display = 'flex';
     document.getElementById('tempHot').style.display = 'flex';
     document.getElementById('check').style.display = 'flex';
+    document.getElementById('score').style.display = 'flex';
+    document.getElementById('score').innerText = 'Pontuação:';
+
+    document.getElementById('timer').style.display = 'flex';
+
+    startTimer();
 }
 
 function checkChallenge() {
@@ -29,20 +33,51 @@ function checkChallenge() {
     const workInput = document.getElementById('tempHot');
     const workValue = parseInt(workInput.value);
 
-    const efficiency = 1 - (T_c / T_h);
-    const work = T_h * efficiency;
+    const work = T_h - T_c;
 
-    if (workValue == work) {
-        alert('Desafio Completo!');
-    } else {
-        alert('Desafio Não Completo!');
-    }
+    scorePontuation(workValue == work);
+    clearInterval(timerInterval);
 
+    document.getElementById('reset').style.display = 'flex';
     document.getElementById('check').style.display = 'none';
+}
+
+function startTimer() {
+    timeRemaining = 60;
+    document.getElementById('timer').innerText = `Tempo Restante: ${timeRemaining}s`;
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        document.getElementById('timer').innerText = `Tempo Restante: ${timeRemaining}s`;
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            alert("Tempo esgotado!");
+        }
+    }, 1000);
+}
+
+function resetGame() {
+    document.getElementById('check').style.display = 'none';
+    document.getElementById('reset').style.display = 'none';
     document.getElementById('wInput').style.display = 'none';
     document.getElementById('tempHot').style.display = 'none';
     document.getElementById('init').style.display = 'flex';
 
     document.getElementById('fixedTempHotDisplay').innerText = "Calor Quente: -- J";
     document.getElementById('fixedTempColdDisplay').innerText = "Calor Frio: -- J";
+
+    document.getElementById('challengeText').style.display = 'none';
+    document.getElementById('score').style.display = 'none';
+
+    document.getElementById('timer').style.display = 'none';
+}
+
+function scorePontuation(comparation) {
+    if  (comparation) {
+        const pontuation = Math.round(timeRemaining * 100 / 60);
+        document.getElementById('score').innerText = `Pontuação: ${pontuation}`;
+        alert('Parabéns! Você conseguiu acertar a quantidade exata!');
+    } else {
+        document.getElementById('score').innerText = `Pontuação: 0`;
+        alert('Infelizmente você errou :(');
+    }
 }

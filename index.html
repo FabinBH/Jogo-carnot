@@ -22,10 +22,13 @@
             <div class="buttons">
                 <button id="init" onclick="setNewChallenge()">Iniciar Desafio</button>
                 <button id="check" onclick="checkChallenge()" style="display: none;">Verificar Desafio</button>
+                <button id="reset" onclick="resetGame()" style="display: none;">Refazer Desafio</button>
             </div>
 
             <div class="results">
-                <div id="challengeText"></div>
+                <div id="challengeText" style="display: none;">Com os dados fornecidos, faça os cálculos e descubra o trabalho que está sendo feito.</div>
+                <div id="score" style="display: none;">Pontuação:</div>
+                <div id="timer" style="display: none;">Tempo Restante: 60s</div>
             </div>
         </div>
     </div>
