@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trabalho de física</title>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="game">
+            <div class="temp" id="fixedTempHotDisplay">Calor Quente: -- J</div>
+            <img src="../Img/2da_ley_de_la_termodinámica,_carnot.gif" alt="Carnot">
+            <div class="temp" id="fixedTempColdDisplay">Calor Frio: -- J</div>
+        </div>
+        <div class="options">
+            <div class="insert">
+                <label for="tempHot" id="wInput" style="display: none;">Trabalho (J):</label>
+                <input type="number" id="tempHot" style="display: none;">
+            </div>
+
+            <div class="buttons">
+                <button id="init" onclick="setNewChallenge()">Iniciar Desafio</button>
+                <button id="check" onclick="checkChallenge()" style="display: none;">Verificar Desafio</button>
+            </div>
+
+            <div class="results">
+                <div id="challengeText"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
