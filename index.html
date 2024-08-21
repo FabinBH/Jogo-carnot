@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Trabalho de física</title>
+    <title>Missão Térmica</title>
 </head>
 <body>
-    <div class="conteiner">
+    
+    <div id="welcomeScreen" class="welcome-screen">
+        <h1>Bem-vindo ao Jogo</h1>
+        <button id="startGameFromInstructionsButton" onclick="goToInstructions()">Historia do Jogo</button>
+        <p>feito por:</p>
+        <p>Antônio</p>
+        <p>Fabio</p>
+        <p>Thiago</p>
+        <p>Maryana</p>
+    </div>
+
+    
+    <div id="instructionsScreen" class="instructions-screen" style="display: none;">
+        <h1>Instruções</h1>
+        <p>Uma Bomba está prestes a explodir, a sua missão é acertar o trabalho que esta sendo feito com o calculo t = q - f  para a bomba não explodir, boa sorte.
+        </p>
+        <button id="backButton" onclick="goBackToWelcome()">Voltar</button>
+        <button id="startGameFromInstructionsButton" onclick="startGame()">Iniciar Jogo</button>
+    </div>
+
+    
+    <div class="conteiner" id="gameScreen" style="display: none;">
         <div class="game">
             <div class="temp" id="fixedTempHotDisplay">Calor Quente: -- J</div>
             <img src="../Img/2da_ley_de_la_termodinámica,_carnot.gif" alt="Carnot">

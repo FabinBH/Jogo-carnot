@@ -3,17 +3,25 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Exo", sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .conteiner {
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-items: center;
-    justify-self: center;
-    height: 100dvh;
+    height: 100vh;
     width: 100%;
+    padding: 20px;
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .game {
@@ -23,34 +31,41 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .temp {
     display: flex;
     justify-content: center;
     font-size: 1.5em;
+    color: #00bfff;
 }
 
 img {
-    width: 25vw;
+    width: 20vw;
     height: auto;
+    margin-bottom: 20px;
 }
 
 #fixedTempDisplay {
-    position: relative;
     display: flex;
     justify-content: center;
-    top: -8vh;
-    z-index: 1;
     font-size: 1.2em;
+    color: #00bfff;
 }
 
 .options {
     display: grid;
     width: 50%;
-    height: 70dvh;
+    height: 70vh;
     justify-content: center;
     align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .insert {
@@ -59,13 +74,12 @@ img {
 }
 
 label {
-    display: flex;
     margin-top: 8vh;
     margin-bottom: 2vh;
     width: 30vw;
-    height: auto;
     font-size: 1.25em;
     justify-content: center;
+    color: #ffffff;
 }
 
 input[type="number"] {
@@ -74,25 +88,37 @@ input[type="number"] {
     font-size: 1em;
     margin-bottom: 4vh;
     padding-left: 2%;
+    border: 1px solid #00bfff;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #ffffff;
 }
 
 .buttons {
+
     display: grid;
     justify-content: center;
     justify-items: center;
 }
 
 button {
-    background-color: greenyellow;
+    background-color: #00bfff;
+    color: #000000;
     border: none;
-    width: 120%;
-    height: 140%;
+    width: 20vw;
+    height: 15vh;
     cursor: pointer;
     border-radius: 10px;
     margin-bottom: 2vw;
     font-size: 1em;
+    display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #008fbf;
 }
 
 .results {
@@ -100,10 +126,80 @@ button {
     font-size: 1em;
     justify-items: center;
     justify-content: center;
+    color: #00bfff;
 }
 
 #challengeText {
     width: 80%;
     text-align: center;
     margin-bottom: 4%;
+    font-size: 1.3em;
+    color: #ffffff;
+}
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    font-size: 2em;
+}
+
+.welcome-screen h1 {
+    margin-bottom: 20px;
+}
+
+.welcome-screen button {
+    background-color: #00bfff;
+    color: #000000;
+    border: none;
+    padding: 40px  100px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.welcome-screen button:hover {
+    background-color: #008fbf;
+}
+.instructions-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 20px;
+}
+
+.instructions-screen h1 {
+    margin-bottom: 20px;
+}
+
+.instructions-screen p {
+    margin-bottom: 30px;
+    font-size: 1.2em;
+}
+
+.instructions-screen button {
+    background-color: #00bfff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+.instructions-screen button:hover {
+    background-color: #008fbf;
 }

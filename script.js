@@ -35,7 +35,7 @@ function checkChallenge() {
 
     const work = T_h - T_c;
 
-    scorePontuation(workValue == work);
+    scorePontuation(workValue === work);
     clearInterval(timerInterval);
 
     document.getElementById('reset').style.display = 'flex';
@@ -50,7 +50,7 @@ function startTimer() {
         document.getElementById('timer').innerText = `Tempo Restante: ${timeRemaining}s`;
         if (timeRemaining <= 0) {
             clearInterval(timerInterval);
-            alert("Tempo esgotado!");
+            alert("Tempo esgotado! A bomba explodiu!");
         }
     }, 1000);
 }
@@ -72,12 +72,31 @@ function resetGame() {
 }
 
 function scorePontuation(comparation) {
-    if  (comparation) {
-        const pontuation = Math.round(timeRemaining * 100 / 60);
-        document.getElementById('score').innerText = `Pontuação: ${pontuation}`;
-        alert('Parabéns! Você conseguiu acertar a quantidade exata!');
+    if (comparation) {
+        score = Math.round(timeRemaining * 100 / 60);
+        document.getElementById('score').innerText = `Pontuação: ${score}`;
+        alert('Parabéns! Você acertou a quantidade exata e desarmou a bomba. Missão cumprida!!');
     } else {
-        document.getElementById('score').innerText = `Pontuação: 0`;
-        alert('Infelizmente você errou :(');
+        document.getElementById('score').innerText = 'Pontuação: 0';
+        alert('Infelizmente você errou');
     }
+}
+function startGame() {
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'flex';
+}
+function startGame() {
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('instructionsScreen').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'flex';
+}
+
+function goToInstructions() {
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('instructionsScreen').style.display = 'flex';
+}
+
+function goBackToWelcome() {
+    document.getElementById('instructionsScreen').style.display = 'none';
+    document.getElementById('welcomeScreen').style.display = 'flex';
 }
