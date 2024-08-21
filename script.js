@@ -1,8 +1,8 @@
-let gameInterval;
 let score = 0;
 let timeRemaining = 60;
 let timerInterval;
-let currentChallenge = { type: 'efficiency', fixedColdTemp: 0, fixedHotTemp: 1 };
+let work;
+let currentChallenge = { fixedColdTemp: 0, fixedHotTemp: 1 };
 
 function setNewChallenge() {
     const fixedColdTemp = Math.floor(Math.random() * 200) + 100;
@@ -33,7 +33,7 @@ function checkChallenge() {
     const workInput = document.getElementById('tempHot');
     const workValue = parseInt(workInput.value);
 
-    const work = T_h - T_c;
+    work = T_h - T_c;
 
     scorePontuation(workValue === work);
     clearInterval(timerInterval);
@@ -77,7 +77,7 @@ function scorePontuation(comparation) {
         alert('Parabéns! Você acertou a quantidade exata e desarmou a bomba. Missão cumprida!!');
     } else {
         document.getElementById('score').innerText = 'Pontuação: 0';
-        alert('Infelizmente você errou');
+        alert(`O trabalho era de ${work} J. Infelizmente a bomba explodiu!`);
     }
 }
 
