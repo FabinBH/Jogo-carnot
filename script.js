@@ -67,13 +67,12 @@ function resetGame() {
 
     document.getElementById('challengeText').style.display = 'none';
     document.getElementById('score').style.display = 'none';
-
     document.getElementById('timer').style.display = 'none';
 }
 
 function scorePontuation(comparation) {
     if (comparation) {
-        score = Math.round(timeRemaining * 100 / 60);
+        score = Math.round(timeRemaining * 10 / 6);
         document.getElementById('score').innerText = `Pontuação: ${score}`;
         alert('Parabéns! Você acertou a quantidade exata e desarmou a bomba. Missão cumprida!!');
     } else {
@@ -81,10 +80,12 @@ function scorePontuation(comparation) {
         alert('Infelizmente você errou');
     }
 }
+
 function startGame() {
     document.getElementById('welcomeScreen').style.display = 'none';
     document.getElementById('gameScreen').style.display = 'flex';
 }
+
 function startGame() {
     document.getElementById('welcomeScreen').style.display = 'none';
     document.getElementById('instructionsScreen').style.display = 'none';

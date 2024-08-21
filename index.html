@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Img/fire.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Missão Térmica</title>
 </head>
 <body>
     
     <div id="welcomeScreen" class="welcome-screen">
-        <h1>Bem-vindo ao Jogo</h1>
-        <button id="startGameFromInstructionsButton" onclick="goToInstructions()">Historia do Jogo</button>
-        <p>feito por:</p>
+        <button id="startGameFromInstructionsButton" onclick="goToInstructions()">História do Jogo</button>
+        <p>Feito por:</p>
         <p>Antônio</p>
         <p>Fabio</p>
         <p>Thiago</p>
@@ -21,13 +21,11 @@
     
     <div id="instructionsScreen" class="instructions-screen" style="display: none;">
         <h1>Instruções</h1>
-        <p>Uma Bomba está prestes a explodir, a sua missão é acertar o trabalho que esta sendo feito com o calculo t = q - f  para a bomba não explodir, boa sorte.
-        </p>
+        <p>Uma bomba está prestes a explodir, a sua missão é calcular o trabalho que estará sendo realizado através dos cálculos de rendimento para que a bomba não exploda. Boa sorte.</p>
         <button id="backButton" onclick="goBackToWelcome()">Voltar</button>
         <button id="startGameFromInstructionsButton" onclick="startGame()">Iniciar Jogo</button>
     </div>
 
-    
     <div class="conteiner" id="gameScreen" style="display: none;">
         <div class="game">
             <div class="temp" id="fixedTempHotDisplay">Calor Quente: -- J</div>
@@ -43,10 +41,10 @@
             <div class="buttons">
                 <button id="init" onclick="setNewChallenge()">Iniciar Desafio</button>
                 <button id="check" onclick="checkChallenge()" style="display: none;">Verificar Desafio</button>
-                <button id="reset" onclick="resetGame()" style="display: none;">Refazer Desafio</button>
+                <button id="reset" onclick="resetGame()" style="display: none;">Jogar novamente</button>
             </div>
 
-            <div class="results">
+            <div id="resultScreen" class="results">
                 <div id="challengeText" style="display: none;">Com os dados fornecidos, faça os cálculos e descubra o trabalho que está sendo feito.</div>
                 <div id="score" style="display: none;">Pontuação:</div>
                 <div id="timer" style="display: none;">Tempo Restante: 60s</div>
